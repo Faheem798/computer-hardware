@@ -1,6 +1,9 @@
 const videoCon = document.querySelector('#videocontainer')
 const play = document.querySelector('#play')
-
+const scroll = new LocomotiveScroll({
+    el: document.querySelector('.main'),
+    smooth: true
+});
 function videoConanim(){
     videoCon.addEventListener('mouseenter',()=>{
         gsap.to(play,{
@@ -24,17 +27,20 @@ function videoConanim(){
     })
 }
 videoConanim()
-gsap.from('.main h1',{
-    y: 29,
-    opacity: 0,
-    delay: 0.29,
-    duration:0.83,
-    stagger: 0.13
-})
-gsap.from('#videocontainer',{
-    y: 29,
-    opacity: 0,
-    scale: 0.33,
-    delay: 0.39,
-    duration:0.33,
-})
+function loadingAnimation(){
+    gsap.from('.main h1',{
+        y: 29,
+        opacity: 0,
+        delay: 0.29,
+        duration:0.83,
+        stagger: 0.13
+    })
+    gsap.from('#videocontainer',{
+        y: 29,
+        opacity: 0,
+        scale: 0.33,
+        delay: 1.09,
+        duration:0.33,
+    })
+}
+loadingAnimation()
